@@ -19,8 +19,8 @@ export const usuarioResolvers = {
             return db.Reserva
                 .findAll({
                     where: {id_usuario: usuario.get('id')},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: requestedFields.getFields(info, {keep: ['id'], exclude: ['reservas']})
                 }).catch(handleError);
         },
@@ -29,8 +29,8 @@ export const usuarioResolvers = {
             return db.Disciplina
                 .findAll({
                     where: {id_usuario: usuario.get('id')},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: requestedFields.getFields(info, {keep: ['id'], exclude: ['disciplinas']})
                 }).catch(handleError);
         },
@@ -47,8 +47,8 @@ export const usuarioResolvers = {
         usuarios: (parent, {first = 10, offset = 0}, context: ResolverContext, info: GraphQLResolveInfo) => {
             return context.db.Usuario
                 .findAll({
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id'], exclude: ['reservas', 'disciplinas']})
                 }).catch(handleError);
         },
@@ -69,8 +69,8 @@ export const usuarioResolvers = {
             return db.Usuario
                 .findAll({
                     where: {id_departamento: departamentoID},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: requestedFields.getFields(info),
                     order: [['nome', 'ASC']]
                 })

@@ -18,8 +18,8 @@ export const departamentoResolvers = {
             return context.db.Sala
                 .findAll({
                     where: {departamento: departamento.get('id')},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id'], exclude: ['salas']})
                 })
                 .catch(handleError);
@@ -29,8 +29,8 @@ export const departamentoResolvers = {
             return context.db.Disciplina
                 .findAll({
                     where: {departamento: departamento.get('id')},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id'], exclude: ['disciplinas']})
                 })
                 .catch(handleError);
@@ -39,8 +39,8 @@ export const departamentoResolvers = {
             return context.db.Curso
                 .findAll({
                     where: {departamento: departamento.get('id')},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id'], exclude: ['cursos']})
                 })
                 .catch(handleError);
@@ -49,8 +49,8 @@ export const departamentoResolvers = {
             return context.db.Usuario
                 .findAll({
                     where: {departamento: departamento.get('id')},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id'], exclude: ['usuarios']})
                 })
                 .catch(handleError);
@@ -59,8 +59,8 @@ export const departamentoResolvers = {
             return context.db.Reserva
                 .findAll({
                     where: {departamento: departamento.get('id')},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id'], exclude: ['reservas']})
                 })
                 .catch(handleError);
@@ -73,8 +73,8 @@ export const departamentoResolvers = {
         departamentos: (parent, {first = 10, offset = 0}, context: ResolverContext, info: GraphQLResolveInfo) => {
             return context.db.Departamento
                 .findAll({
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id'], exclude: ['salas', 'disciplinas', 'cursos', 'usuarios', 'reservas']})
                 })
                 .catch(handleError);

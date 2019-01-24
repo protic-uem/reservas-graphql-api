@@ -2,7 +2,7 @@
   "development": {
     "username": "wbhum",
     "password": "wbhum",
-    "database": "reservaUem_development",
+    "database": "reservas_uem",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
@@ -17,7 +17,7 @@
   "production": {
     "username": "wbhum",
     "password": "wbhum",
-    "database": "reservaUem_development",
+    "database": "reservas_uem",
     "host": "127.0.0.1",
     "dialect": "mysql"
   }

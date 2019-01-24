@@ -29,8 +29,8 @@ export const salaResolvers = {
         salas: (parent, {first = 10, offset = 0}, context: ResolverContext, info: GraphQLResolveInfo) => {
             return context.db.Sala
                 .findAll({
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id']})
                 })
                 .catch(handleError);
@@ -52,8 +52,8 @@ export const salaResolvers = {
             return db.Sala
                 .findAll({
                     where: {id_departamento: departamentoID},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: requestedFields.getFields(info),
                     order: [['numero', 'ASC']]
                 })
@@ -87,8 +87,8 @@ export const salaResolvers = {
             return  db.Sala
             .findAll({
                 where,
-                limit: first,
-                offset: offset,
+                //limit: first,
+                //offset: offset,
                 attributes: requestedFields.getFields(info),
                 order: [["numero", "ASC"]]
             })

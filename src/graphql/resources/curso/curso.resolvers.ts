@@ -26,8 +26,8 @@ export const cursoResolvers = {
             return db.Disciplina
                 .findAll({
                     where: {curso: curso.get('id')},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: requestedFields.getFields(info, {keep: ['id'], exclude: ['disciplinas']})
                 }).catch(handleError);
         }
@@ -39,8 +39,8 @@ export const cursoResolvers = {
         cursos: (parent, {first = 10, offset = 0}, context: ResolverContext, info: GraphQLResolveInfo) => {
             return context.db.Curso
                 .findAll({
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id'], exclude: ['disciplinas']})
                 })
                 .catch(handleError);

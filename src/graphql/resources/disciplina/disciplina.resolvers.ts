@@ -39,8 +39,8 @@ export const disciplinaResolvers = {
         disciplinas: (parent, {first = 10, offset = 0}, context: ResolverContext, info: GraphQLResolveInfo) => {
             return context.db.Disciplina
                 .findAll({
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id']})
                 })
                 .catch(handleError);
@@ -62,8 +62,8 @@ export const disciplinaResolvers = {
             return db.Disciplina
                 .findAll({
                     where: {id_departamento: departamentoID, status: 1},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: requestedFields.getFields(info),
                     order: [['nome', 'ASC']]
                 })
@@ -74,8 +74,8 @@ export const disciplinaResolvers = {
             return db.Disciplina
                 .findAll({
                     where: {usuario: usuarioID, status: 1},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: requestedFields.getFields(info),
                     order: [['nome', 'ASC']]
                 })

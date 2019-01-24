@@ -40,9 +40,6 @@ export const reservaResolvers = {
                 .then((disciplina:DisciplinaInstance) => {
                     return disciplina;
                 });
-            /*return disciplinaLoader
-                .load({key: reserva.get('disciplina'), info})
-                .catch(handleError);*/
         }
     },
 
@@ -51,8 +48,8 @@ export const reservaResolvers = {
         reservas: (parent, {first = 10, offset = 0}, context: ResolverContext, info: GraphQLResolveInfo) => {
             return context.db.Reserva
                 .findAll({
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id']})
                 })
                 .catch(handleError);
@@ -62,7 +59,9 @@ export const reservaResolvers = {
             usuarioID = parseInt(usuarioID);
             return context.db.Reserva
                 .findAll({
-                    where: {id_usuario : usuarioID, data_reserva: {[context.db.sequelize.Op.gte]: context.db.sequelize.fn('NOW')}, status: {[context.db.sequelize.Op.or]: [0,1]}},
+                    where: {id_usuario : usuarioID, 
+                        data_reserva: {[context.db.sequelize.Op.gte]: context.db.sequelize.fn('DATE', context.db.sequelize.fn('NOW'))}, 
+                        status: {[context.db.sequelize.Op.or]: [0,1]}},
                     
                     attributes: context.requestedFields.getFields(info, {keep: ['id']})
                 })
@@ -80,8 +79,8 @@ export const reservaResolvers = {
                             {tipo_reserva: 'Fixo'}]}],
                             periodo: periodo,
                             status:  1},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id']}),
                     order: [['data_solicitacao', 'DESC']],
                 })
@@ -99,8 +98,8 @@ export const reservaResolvers = {
                             {dia_semana_reserva:context.db.sequelize.fn('DAYOFWEEK', data_reserva)}, 
                             {tipo_reserva: 'Fixo'}]}],
                             status:  1},
-                    limit: first,
-                    offset: offset,
+                    //limit: first,
+                    //offset: offset,
                     attributes: context.requestedFields.getFields(info, {keep: ['id']}),
                     order: [['periodo', 'ASC']],
                 })
