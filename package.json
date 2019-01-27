@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clusters": "NODE_ENV=production port=8080 node dist/clusters",
+    "clusters": "NODE_ENV=production JWT_SECRET=Pr@tic123! port=8080 node dist/clusters",
     "production": "NODE_ENV=production JWT_SECRET=Pr@tic123! node dist/index",
     "build": "npm run gulp build",
-    "start": "npm run build && npm run production",
+    "start": "npm run build && npm run clusters",
     "gulp": "node_modules/.bin/gulp",
     "dev": "NODE_ENV=development JWT_SECRET=iron_man node_modules/.bin/nodemon --delay 5 dist/index",
     "test": "NODE_ENV=test JWT_SECRET=jwt_test mocha"

@@ -13,11 +13,10 @@ class Clusters {
 
     init(): void {
         if(cluster.isMaster){
-            this.cpus.forEach(() => {
-                cluster.fork();
-            });
 
-            cluster.on('listerning', (worker: cluster.Worker) => {
+            this.cpus.forEach(() => cluster.fork());
+
+            cluster.on('listening', (worker: cluster.Worker) => {
                 console.log('Cluster %d conectado', worker.process.pid);
             });
 

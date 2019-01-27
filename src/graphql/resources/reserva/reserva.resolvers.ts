@@ -127,7 +127,7 @@ export const reservaResolvers = {
             {   replacements: [usuarioID, data_reserva, data_reserva, periodo],
                 type: context.db.sequelize.QueryTypes.SELECT}).then(
                 reservas => {
-                    throwError((reservas != undefined && reservas.length > 0), `Reserva já existe`);
+                    throwError((reservas != undefined && reservas.length > 0), `Já existe uma reserva na mesma data e horário para esse usuário. Por favor, escolha outra data e/ou periodo`);
                     if(reservas != undefined && reservas.length > 0)
                         return  false;
                     else
