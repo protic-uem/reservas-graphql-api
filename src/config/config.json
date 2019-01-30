@@ -15,10 +15,10 @@
     "logging": false
   },
   "production": {
-    "username": "wbhum",
-    "password": "wbhum",
+    "username": "mysqladmin",
+    "password": "ProticUEM!",
     "database": "reservas_uem",
-    "host": "127.0.0.1",
+    "host": "proticreservas.cax4u61d2dt5.sa-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   }
 }
